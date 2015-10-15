@@ -23,7 +23,8 @@ public class AsyncTaskBuilder<Progress, Result> {
 		return new AsyncTask<Void, Progress, Result>() {
 			@Override
 			protected Result doInBackground(Void... voids) {
-				return work.execute(this::publishProgress); // this reference will not be taken into account by Proguard
+				// this reference will not be taken into account by Proguard
+				return work.execute(this::publishProgress);
 			}
 			
 		};
