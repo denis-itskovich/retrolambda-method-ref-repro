@@ -32,4 +32,7 @@ public class AsyncTaskBuilder<Progress, Result> {
 }
 ```
 
-Build log can be found here: [https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111](https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111)
+## Other information:
+- Build log can be found here: [https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111](https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111)
+
+- The issue seems to be related to this retrolambda issue: [https://github.com/orfjackal/retrolambda/issues/48](https://github.com/orfjackal/retrolambda/issues/48)
