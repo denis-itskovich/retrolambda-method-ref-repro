@@ -7,7 +7,7 @@
 This simple project reproduces retrolambda/proguard problem when using method references
 
 ## Background
-Proguard seems to shrink methods, referenced as method references
+Proguard seems to shrink methods, referenced as method references. See an example below:
 
 ```java
 public class AsyncTaskBuilder<Progress, Result> {
@@ -31,3 +31,5 @@ public class AsyncTaskBuilder<Progress, Result> {
 	}
 }
 ```
+
+Build log can be found here: [https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111](https://travis-ci.org/denis-itskovich/retrolambda-method-ref-repro/builds/85513111)
