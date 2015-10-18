@@ -4,16 +4,9 @@ package com.github.retrolambda_methodref_repro;
 
 import android.os.AsyncTask;
 
-/**
- * Created by ditskovi on 10/15/2015.
- */
 public class AsyncTaskBuilder<Progress, Result> {
     public interface ProgressObserver<P> {
-        void progressChanged(P... progress);
-    }
-
-    public interface BackgroundWork<_Result> {
-        _Result execute();
+        void progressChanged(P[] progress);
     }
 
     public interface BackgroundWorkWithProgress<_Progress, _Result> {
@@ -25,11 +18,6 @@ public class AsyncTaskBuilder<Progress, Result> {
 
     public AsyncTaskBuilder<Progress, Result> doInBackground(BackgroundWorkWithProgress<Progress, Result> work) {
         this.work = work;
-        return this;
-    }
-
-    public AsyncTaskBuilder<Progress, Result> doInBackground(BackgroundWork<Result> work) {
-        this.work = observer -> work.execute();
         return this;
     }
 
@@ -48,7 +36,8 @@ public class AsyncTaskBuilder<Progress, Result> {
             }
 
             @Override
-            protected void onProgressUpdate(Progress... progress) {
+            @SafeVarargs
+            protected final void onProgressUpdate(Progress... progress) {
                 if (progressObserver != null) progressObserver.progressChanged(progress);
             }
         };

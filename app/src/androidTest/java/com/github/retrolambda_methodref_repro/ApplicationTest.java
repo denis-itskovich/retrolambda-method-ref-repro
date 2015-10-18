@@ -14,7 +14,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testAsyncTaskBuilder() {
         AsyncTaskBuilder.<Integer, Integer>asyncTask()
                 .doInBackground(observer -> {
-                    observer.progressChanged(100);
+                    observer.progressChanged(new Integer[]{100});
                     return 1;
                 })
                 .build()
