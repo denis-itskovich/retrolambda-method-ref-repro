@@ -36,5 +36,6 @@ android {
 }
 
 dependencies {
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.0.6'
     testCompile 'junit:junit:4.12'
 }
